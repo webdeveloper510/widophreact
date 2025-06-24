@@ -1,0 +1,34 @@
+button.skybtn {
+  padding: 15px 30px !important;
+  border-bottom-right-radius: 53px !important;
+  border-top-right-radius: 53px !important;
+  font-size: 15px;
+  font-family: var(--font-SubHeding) !important;
+  width: 50%;
+  background: #650fee;
+  margin-bottom: 22px;
+  display: inline-block;
+  position: relative;
+  padding-left: 35px !important;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+button.skybtn::before {
+  position: absolute;
+  content: '';
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  border-radius: 100px;
+  background-color: #ffffff;
+  left: -13px;
+  top: 12px;
+}
+button.skybtn:hover {
+  background: #2499DB;
+  color: #ffffff;
+}

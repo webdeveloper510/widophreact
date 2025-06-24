@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 25" width="24" height="25">
+	<title>Black (1)</title>
+	<defs>
+		<image  width="24" height="25" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAZCAMAAAAc9R5vAAAAAXNSR0IB2cksfwAAAD9QTFRF/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wls/Wlsk5b3awAAABV0Uk5TAEBwgFDf/2AQn48gf7+gr5Awz+9vYQhwcQAAARhJREFUeJxtUttuxSAMC5ek5KS0FPb/37oY6PawIdQKO4pjAxFWiCkG+rMyi2AfOBT92MZPqagOl5wgKs8/8OTHuxDFjSRBoU38lOYNmjyT6eofZaPiCsKFymgoPa4abLLBKy061hizyBgSyTcV6arZsUOWhlw0Ccq3z1JegpLLEqOtaz6SoZ5S2k7b8MopbvQ1ZPDYTk0+/mkYV0VR/VyAtq1ymzuNO4u4mCQKXwFOKdc+tWZeB6/Ws3G9O22nqPZhpNGySq/Tc0UnPovdcuel4mHJChXEw8JxExHJ5NfpAf+ItpOFqtl+nXL3yY0R/MVrAAxftWmFJZvIe3Hnz2WnjXAty6lHUkLdOKLSsp3iufR/XtLvA/sGGboKlmM5ZFUAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="0" y="0"/>
+</svg>
