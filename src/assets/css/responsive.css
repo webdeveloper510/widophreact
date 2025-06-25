@@ -319,6 +319,12 @@ p.material-heading {
 }
 
 @media screen and (max-width: 768px) {
+    .desktop-only{
+        display:none;
+    }
+    /* .mobile-footer{
+        display: block;
+    } */
     input.form-control.email-mobile-input.is-invalid.form-control.form-control-lg {
         border: 1px solid #dc3545 !important;
     }

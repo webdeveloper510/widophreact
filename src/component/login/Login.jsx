@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Form from 'react-bootstrap/Form';
+import { Form, FloatingLabel, Col } from "react-bootstrap";
 import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { userLogin, resendOtp, verifyEmail, } from "../../utils/Api";
 import { toast } from "react-toastify";
@@ -11,7 +11,7 @@ import { Alert, Button, Modal, ModalBody } from "react-bootstrap";
 import * as Yup from "yup"
 import * as CountryData from "country-codes-list";
 import moment from "moment";
-
+import LoginImage from "../../assets/img/header/login-image.png";
 
 const Login = () => {
 
@@ -218,12 +218,8 @@ const Login = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             {/* start-- card */}
-                            <div className="row">
-                                <div className="col-lg-5">
-                                    <div className="sign-image-sec">
-                                        <img src="assets/img/home/signup-left.webp" className="signup" alt="alt_image" />
-                                    </div>
-                                </div>
+                            <div className="row align-items-center">
+                               
                                 <div className="col-lg-7 d-flex align-items-center">
                                     {
                                         isGetOtp ? (
@@ -302,14 +298,16 @@ const Login = () => {
                                                 <div className="col-lg-12">
                                                     <div className="card1 card-signup1">
                                                         <div className="card-body">
-                                                            <h2 className="Sign-heading">Sign in</h2>
+                                                           <div className="exchange-title">
+              Sign <br></br>In
+              <span className="exchange_rate">To send money securely.</span>
+            </div>
                                                             <div className="form_login">
                                                                 <p className="space-div"></p>
-                                                                <form onSubmit={formik.handleSubmit} noValidate>
+                                                                <form onSubmit={formik.handleSubmit} className="exchange-form" noValidate>
                                                                     <Form.Group className="mb-2 form_label">
-                                                                        <Form.Label>Email/Mobile Number<span style={{ color: 'red' }} >*</span></Form.Label>
 
-
+                                                                       
                                                                         <div className={clsx("email-phone", {
 
                                                                             'invalid': formik.touched.email && formik.errors.email
@@ -318,14 +316,20 @@ const Login = () => {
                                                                                 {
                                                                                     isMobile ? (
                                                                                         <div className="col-md-3 paddingg-l">
+                                                                                            
                                                                                             <Form.Select className="login-code-select form-select" value={countryCode} onChange={(e) => setCountryCode(e.target.value)}>
                                                                                                 <option value="+61">+61 (AU)</option>
                                                                                                 <option value="+64">+64 (NZ)</option>
                                                                                             </Form.Select>
+                                                                                             
                                                                                         </div>
                                                                                     ) : ""
                                                                                 }
                                                                                 <div className={`${isMobile ? "col-md-9" : "col-md-12 padding-dd"}  mobiletext`}>
+                                                                                    <FloatingLabel
+                                                                                    as={Col}
+                                                                                    label="Email/Mobile"
+                                                                                    >
                                                                                     <Form.Control
                                                                                         type={'text'}
                                                                                         autoComplete="off"
@@ -341,14 +345,21 @@ const Login = () => {
                                                                                         )}
                                                                                         placeholder="Email/Mobile"
                                                                                     />
+                                                                                    </FloatingLabel>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </Form.Group>
-                                                                    <div className="row">
+                                                                    <div className="row mt-4">
                                                                         <div className="pass-row">
                                                                             <Form.Group className="mb-2 form_label">
-                                                                                <Form.Label> Your Password<span style={{ color: 'red' }} >*</span></Form.Label>
+                                                                                {/* <Form.Label> Your Password<span style={{ color: 'red' }} >*</span></Form.Label> */}
+                                                                                
+                                                                                 <FloatingLabel
+                                                                                    as={Col}
+                                                                                    label="Current Password"
+                                                                                    className="mb-3 position-relative"
+                                                                                    >
                                                                                 <Form.Control
                                                                                     type={showPassword ? 'text' : 'password'}
                                                                                     autoComplete='off'
@@ -361,10 +372,11 @@ const Login = () => {
                                                                                     )}
                                                                                     placeholder="Enter Password..."
                                                                                 />
-
-                                                                                <span className="login_pass_icons" type="button" onClick={() => toggleShowPassword()}>
+                                                                           
+                                                                                <span className="login_pass_icons password-eye" type="button" onClick={() => toggleShowPassword()}>
                                                                                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                                                                                 </span>
+                                                                                 </FloatingLabel>
                                                                                 {formik.touched.password && formik.errors.password && (
                                                                                     <div className='fv-plugins-message-container mt-1'>
                                                                                         <div className='fv-help-block'>
@@ -389,14 +401,14 @@ const Login = () => {
                                                                             </Form.Group> */}
                                                                         </div>
                                                                         <div className="col-lg-6">
-                                                                            <NavLink className="forgot_pass" to="/forgot-password"> Forgot password?</NavLink>
+                                                                            <NavLink className="text-success fw-semibold small forgotpassword-text blockelement" to="/forgot-password"> Forgot password?</NavLink>
                                                                         </div>
                                                                     </div>
-                                                                    <button variant="primary"
+                                                                    <Button variant="primary"
                                                                         type="submit"
-                                                                        className="login_button"
+                                                                        className="custom-signin-btn"
                                                                     >
-                                                                        SIGN <b>in</b>   <img src="assets/img/home/Union.png" className="vission_image" alt="alt_image" />
+                                                                        SIGN <b>IN</b> 
                                                                         {loading ? <>
                                                                             <div className="loader-overly">
                                                                                 <div className="loader" >
@@ -405,9 +417,9 @@ const Login = () => {
 
                                                                             </div>
                                                                         </> : <></>}
-                                                                    </button>
-                                                                    <p className="already_content">Don't have account?
-                                                                        <NavLink to="/sign-up">Sign up</NavLink>
+                                                                    </Button>
+                                                                    <p className="already_content mt-3">Don't have account?
+                                                                        <NavLink to="/sign-up" className="text-success fw-bold forgotpassword-text"> Sign up</NavLink>
                                                                     </p>
                                                                 </form>
                                                             </div>
@@ -418,6 +430,11 @@ const Login = () => {
                                         )
                                     }
 
+                                </div>
+                                 <div className="col-lg-5">
+                                    <div className="sign-image-sec">
+                                         <img src={LoginImage} alt="Login Art" className="signup" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

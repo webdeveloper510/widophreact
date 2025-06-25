@@ -1,109 +1,3 @@
-@font-face {
-    font-family: 'tt_firs_neue_trlbold';
-    src: url('../fonts/tt_firs_neue_trial_bold-webfont.woff2') format('woff2'),
-         url('../fonts/tt_firs_neue_trial_bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'tt_firs_neue_trldemibold';
-    src: url('../fonts/tt_firs_neue_trial_demibold-webfont.woff2') format('woff2'),
-         url('../fonts/tt_firs_neue_trial_demibold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'tt_firs_neue_trlextrabold';
-    src: url('../fonts/tt_firs_neue_trial_extrabold-webfont.woff2') format('woff2'),
-         url('../fonts/tt_firs_neue_trial_extrabold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'tt_firs_neue_trlit';
-    src: url('../fonts/tt_firs_neue_trial_italic-webfont.woff2') format('woff2'),
-         url('../fonts/tt_firs_neue_trial_italic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'tt_firs_neue_trllight';
-    src: url('../fonts/tt_firs_neue_trial_light-webfont.woff2') format('woff2'),
-         url('../fonts/tt_firs_neue_trial_light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'tt_firs_neue_trlmedium';
-    src: url('../fonts/tt_firs_neue_trial_medium-webfont.woff2') format('woff2'),
-         url('../fonts/tt_firs_neue_trial_medium-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'tt_firs_neue_trlregular';
-    src: url('../fonts/tt_firs_neue_trial_regular-webfont.woff2') format('woff2'),
-         url('../fonts/tt_firs_neue_trial_regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'tt_firs_neue_trlthin';
-    src: url('../fonts/tt_firs_neue_trial_thin-webfont.woff2') format('woff2'),
-         url('../fonts/tt_firs_neue_trial_thin-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-:root {
-    --font-global: 'tt_firs_neue_trlregular' !important;
-    --font-SubHeding: 'tt_firs_neue_trlregular'  !important;
-    --font-Headings:'tt_firs_neue_trlbold' !important;
-    --font-Navigation:'tt_firs_neue_trlbold' !important;
-    --font-Text:'tt_firs_neue_trllight' !important;
-  }
-
-  body{
-    font-family: var(--font-global) !important;
-  }
-
 
   nav.login-navbar ul {
     margin: 0;
@@ -1485,6 +1379,7 @@ p.icon-acc {
     }
     section.sigupsec {
         padding: 0px;
+        margin-top:30px;
     }
     
     img.signup {
@@ -1501,7 +1396,7 @@ p.icon-acc {
     }
     .form_signup select.form-control.bg-transparent.form-select{
         border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 67.27px;
+        border-radius: 10px;
         height: 50px;
         padding: 10px 15px;
     }
@@ -1532,11 +1427,9 @@ p.icon-acc {
 
 .form_signup .react-tel-input.form-control.form-control-sm.bg-transparent {
     border: 1px solid #EAEAEA;
-    border-radius: 67.27px;
+    border-radius:10px;
     height: 50px;
     padding: 10px 30px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
 }
 .form_signup .react-tel-input.form-control.form-control-sm.bg-transparent.is-invalid {
     border: 1px solid #dc3545;
@@ -1566,26 +1459,21 @@ label.form-check-label {
 }
 .form_signup .react-tel-input.form-control.form-control-sm.bg-transparent ,.pass-row input{
     border: 1px solid #EAEAEA;
-    border-radius: 67.27px;
+    border-radius: 10px;
     height: 50px;
     padding: 10px 15px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
 }
 .email-row input,.cnfirmpass-row input {
     border: 1px solid rgba(36, 12, 12, 0.2);
-    border-radius: 67.27px;
+    border-radius:10px;
     height: 50px;
     padding: 10px 15px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
 }
 
 
 button.signup_button,button.login_button {
     padding: 14px 44px !important;
-    border-bottom-left-radius: 53px !important;
-    border-top-left-radius: 53px !important;
+
     font-size: 17px !important;
     font-family: var(--font-SubHeding) !important;
     width: 50%;
@@ -1650,9 +1538,7 @@ p.space-div {
     padding-left: 30px;
     padding-right: 30px;
     background: transparent;
-    border-radius: 67.27px;
-    border-top-right-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
+    border-radius: 10px;
 }
 .container-foter {
     padding-left: 60px;
@@ -1669,9 +1555,9 @@ p.space-div {
    
 }
 @media only screen and (max-width: 1980px) and (min-width: 992px)  {
-    .sign-image-sec {
+    /* .sign-image-sec {
         padding-top: 150px;
-    }
+    } */
 
     
 }
@@ -1767,7 +1653,7 @@ a.Get-start.mobile-btn:before {
     top: 12px;
     
 }
-.footer-top1.mobile-footer
+.mobile-footer
 {
     display: none;
 }
@@ -1854,11 +1740,9 @@ label.toggle-container
 }
 
 .referral-code input {
-    border-radius: 67.27px;
+    border-radius: 10px;
     height: 50px;
     padding: 10px 30px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
     border: 1px solid #eaeaea;
     width: 100%;
 }
@@ -1878,7 +1762,6 @@ label.toggle-container
     background-color: #fff;
     padding: 5px;
     z-index: 1000;
-  
     width: 100%;
     border-radius: 5px;
 }
@@ -1932,11 +1815,9 @@ select.form-select option {
     border: 2px solid #c9efff !important;
 }
 .forgot-pass .react-tel-input.form-control.form-control-sm.bg-transparent {
-    border-radius: 67.27px;
+    border-radius: 10px;
     height: 50px;
     padding: 10px 30px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
 }
 .card-body.forgot-pass {
     padding-bottom: 150px !important;
@@ -1951,11 +1832,9 @@ select.form-select option {
 
 .resetpass input {
     border: 1px solid #EAEAEA;
-    border-radius: 67.27px;
+    border-radius: 10px;
     height: 50px;
     padding: 10px 30px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
 }
 a.logactin:hover,.light_box_bg:hover,.remit_keypoints:hover,.timeline-step:hover,.testimonail:hover,a.Get-start:hover,.btn-con button:hover{
     box-shadow: 0px 1px 2px 3px #55378559 !important;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Form from 'react-bootstrap/Form';
+import { Form, FloatingLabel, Col } from "react-bootstrap";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import { resetPassword } from "../../utils/Api";
@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import * as Yup from "yup";
 import clsx from "clsx";
+import LoginImage from "../../assets/img/header/login-image.png";
 
 const RecentPassword = () => {
 
@@ -74,19 +75,25 @@ const RecentPassword = () => {
         <>
             <section className="sigupsec" style={{ minHeight: "100vh", backgroundColor: "transparent" }}>
                 <div className="container">
-                    <div className="row">
+                    <div className="row align-items-center">
                         <div className="col-lg-5">
                             <div className="sign-image-sec">
-                                <img src="assets/img/home/signup-left.webp" className="signup" alt="alt_image" />
-
+                    <img src={LoginImage} alt="Login Art" className="signup" />
                             </div>
                         </div>
                         <div className="col-lg-7 d-flex align-items-center">
                             <div className="card-body forgot-pass resetpass">
-                                <h2 className="Sign-heading mb-5">Reset Password</h2>
-                                <form onSubmit={formik.handleSubmit}>
+                                <div className="exchange-title">
+              Reset <br></br>Password
+              <span className="exchange_rate">To send money securely.</span>
+            </div>
+                                <form onSubmit={formik.handleSubmit} className="exchange-form" >
                                     <Form.Group className="mb-3 form_label" >
-                                        <Form.Label>Reset Password OTP<span style={{ color: 'red' }} >*</span></Form.Label>
+                                       <FloatingLabel
+                                             as={Col}
+                                             label="Reset Password OTP"
+                                              className="mb-3 position-relative"
+                                              >
                                         <input
                                             type="text"
                                             placeholder="Enter Reset password OTP"
@@ -103,6 +110,7 @@ const RecentPassword = () => {
                                                 }
                                             )}
                                         />
+                                        </FloatingLabel>
                                         {formik.touched.reset_password_otp && formik.errors.reset_password_otp && (
                                             <div className='fv-plugins-message-container mt-1'>
                                                 <div className='fv-help-block'>
@@ -112,7 +120,11 @@ const RecentPassword = () => {
                                         )}
                                     </Form.Group>
                                     <Form.Group className="mb-3 form_label" >
-                                        <Form.Label>New Password<span style={{ color: 'red' }} >*</span></Form.Label>
+                                        <FloatingLabel
+                                             as={Col}
+                                             label="New Password"
+                                              className="mb-3 position-relative"
+                                              >
                                         <Form.Control
                                             type={showPassword ? 'text' : 'password'}
                                             id="password"
@@ -128,9 +140,11 @@ const RecentPassword = () => {
                                                 }
                                             )}
                                         />
+
                                         <span onClick={toggleShowPassword} className="pass_icons">
                                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                                         </span>
+                                        </FloatingLabel>
                                         {formik.touched.password && formik.errors.password && (
                                             <div className='fv-plugins-message-container mt-1'>
                                                 <div className='fv-help-block'>
@@ -141,6 +155,11 @@ const RecentPassword = () => {
                                     </Form.Group>
                                     <Form.Group className="mb-3 form_label" >
                                         <Form.Label>Confirm Password<span style={{ color: 'red' }} >*</span></Form.Label>
+                                         <FloatingLabel
+                                             as={Col}
+                                             label="Confirm Password"
+                                              className="mb-3 position-relative"
+                                              >
                                         <Form.Control
                                             type={showConfirmPassword ? 'text' : 'password'}
                                             name="confirm Password"
@@ -158,6 +177,7 @@ const RecentPassword = () => {
                                         <span onClick={toggleShowConfirmPassword} className="pass_icons">
                                             {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                                         </span>
+                                        </FloatingLabel>
                                         {formik.touched.confirm_password && formik.errors.confirm_password && (
                                             <div className='fv-plugins-message-container mt-1'>
                                                 <div className='fv-help-block'>
@@ -168,7 +188,7 @@ const RecentPassword = () => {
                                     </Form.Group>
                                     <button variant="primary"
                                         type="submit"
-                                        className="login_button"
+                                        className="custom-signin-btn"
                                     >
                                         Reset Password
                                         {loading ? <>

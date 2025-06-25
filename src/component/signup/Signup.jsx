@@ -1,7 +1,11 @@
 
 
 import React, { useEffect, useState } from "react";
-import Form from 'react-bootstrap/Form';
+import {
+  Col,
+  Form,
+  FloatingLabel,
+} from "react-bootstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "react-phone-input-2/lib/bootstrap.css";
@@ -16,6 +20,9 @@ import { Alert, Modal, Button, ModalBody } from "react-bootstrap";
 import OtpInput from "react18-input-otp";
 import { senderAreaList as areaList } from "../../utils/ArealList";
 import moment from "moment";
+import SignupImage from "../../assets/img/header/signup-image.png"
+
+
 const Signup = () => {
     const [isOn, setOn] = useState(false);
     const handleToggle = () => {
@@ -255,10 +262,10 @@ const Signup = () => {
         <>
             <section className="sigupsec" style={{ minHeight: "100vh" }}>
                 <div className="container">
-                    <div className="row">
+                    <div className="row align-items-center">
                         <div className="col-lg-5">
                             <div className="sign-image-sec">
-                                <img src="assets/img/home/signup-left.webp" className="signup" alt="alt_image" />
+                                <img src={SignupImage} alt="signup Art" className="signup" />
                             </div>
                         </div>
                         <div className="col-lg-7 d-flex align-items-center">
@@ -339,13 +346,20 @@ const Signup = () => {
                                         <div className="col-lg-12">
                                             <div className="card1 card-signup1">
                                                 <div className="card-body">
-                                                    <h2 className="Sign-heading">Sign Up</h2>
-                                                    <p className="money-form">Where are you sending money from?</p>
+                                                    <div className="exchange-title">
+              Sign <br></br>Up
+              <span className="exchange_rate">
+                Where are you sending money from?
+              </span>
+            </div>
                                                     <div className="form_signup">
-                                                        <form onSubmit={formik.handleSubmit} autoComplete="on">
+                                                        <form onSubmit={formik.handleSubmit} autoComplete="on" className="exchange-form">
                                                             <Form.Group className="mb-2 form_label">
-                                                                <Form.Label>Location<span style={{ color: '#FD6063' }} >*</span> </Form.Label>
-                                                                <Form.Select
+                                                            <FloatingLabel
+                                                                            as={Col}
+                                                                            label="Location"
+                                                                            >              
+                                                                            <Form.Select
                                                                     name="location"
                                                                     value={formik.values.location ? formik.values.location : "Australia"}
                                                                     onChange={handleChange}
@@ -361,11 +375,16 @@ const Signup = () => {
                                                                             }) : ""
                                                                     }
                                                                 </Form.Select>
+                                                                 </FloatingLabel>
                                                             </Form.Group>
-                                                            <div className="row">
+                                                            <div className="row mt-4">
                                                                 <div className="col-md-6 phone-row">
                                                                     <Form.Group className="mb-2 form_label" >
-                                                                        <Form.Label>Your Phone<span style={{ color: 'red' }} >*</span> </Form.Label>
+                                                                        <FloatingLabel
+                                                                                    as={Col}
+                                                                                    label="Email/Mobile Number"
+                                                                                    className="mb-3 mobileinput"
+                                                                                    >
                                                                         <div className="row kustom_mobile_signup margin0">
                                                                             <div className="col-md-5 px-0">
                                                                                 <select
@@ -382,6 +401,7 @@ const Signup = () => {
                                                                                 </select>
                                                                             </div>
                                                                             <div className={`col-md-7 px-0`}>
+                                                                                 
                                                                                 <input
                                                                                     type="text"
                                                                                     name="mobile"
@@ -399,6 +419,7 @@ const Signup = () => {
                                                                                     placeholder="Enter your mobile"
                                                                                     autoComplete="off"
                                                                                 />
+                                                                              
                                                                             </div>
                                                                         </div>
                                                                         {formik.touched.mobile && formik.errors.mobile && (
@@ -408,11 +429,16 @@ const Signup = () => {
                                                                                 </div>
                                                                             </div>
                                                                         )}
+                                                                          </FloatingLabel>
                                                                     </Form.Group>
                                                                 </div>
                                                                 <div className="col-md-6 email-row">
-                                                                    <Form.Group className="mb-2 form_label" >
-                                                                        <Form.Label>Your Email<span style={{ color: '#FD6063' }} >*</span> </Form.Label>
+                                                                    <Form.Group className="mb-2 form_label" >                                                                       
+                                                                        <FloatingLabel
+                                                                        as={Col}
+                                                                        label="Email"
+                                                                        className="mb-3"
+                                                                        >
                                                                         <Form.Control
                                                                             type="email"
                                                                             placeholder="Enter Your Email..."
@@ -426,6 +452,7 @@ const Signup = () => {
                                                                             )}
                                                                             autoComplete="off"
                                                                         />
+                                                                        </FloatingLabel> 
                                                                         {formik.touched.email && formik.errors.email && (
                                                                             <div className='fv-plugins-message-container mt-1'>
                                                                                 <div className='fv-help-block'>
@@ -441,7 +468,11 @@ const Signup = () => {
                                                                 <div className="col-md-6 pass-row">
                                                                     <Form.Group className="mb-2 form_label">
                                                                         <div className="f-le">
-                                                                            <Form.Label> Your Password<span style={{ color: 'red' }} >*</span> </Form.Label>
+                                                                             <FloatingLabel
+                                                                            as={Col}
+                                                                            label="Your Password"
+                                                                            className="mb-3 position-relative"
+                                                                            >
                                                                             <Form.Control
                                                                                 type={showPassword ? 'text' : 'password'}
                                                                                 id="password"
@@ -457,9 +488,10 @@ const Signup = () => {
                                                                                     }
                                                                                 )}
                                                                             />
-                                                                            <span onClick={toggleShowPassword} className="pass_icons">
+                                                                            <span onClick={toggleShowPassword} className="password-eye">
                                                                                 {showPassword ? <FaEyeSlash /> : <FaEye />}
                                                                             </span>
+                                                                            </FloatingLabel>
                                                                         </div>
                                                                         {formik.touched.password && formik.errors.password && (
                                                                             <div className='fv-plugins-message-container mt-1'>
@@ -472,8 +504,11 @@ const Signup = () => {
                                                                 </div>
                                                                 <div className="col-md-6 cnfirmpass-row">
                                                                     <Form.Group className="mb-2 form_label">
-                                                                        <Form.Label> Confirm Password<span style={{ color: 'red' }} >*</span> </Form.Label>
-                                                                        <Form.Control
+                                                                        <FloatingLabel
+                                                                            as={Col}
+                                                                            label="Confirm Password"
+                                                                            className="mb-3 position-relative"
+                                                                            >                                                                        <Form.Control
                                                                             type={showConfirmPassword ? 'text' : 'password'}
                                                                             name="confirm Password"
                                                                             autoComplete="off"
@@ -487,9 +522,10 @@ const Signup = () => {
                                                                                 }
                                                                             )} rate_input form-control`}
                                                                         />
-                                                                        <span onClick={toggleShowConfirmPassword} className="pass_icons">
+                                                                        <span onClick={toggleShowConfirmPassword} className="password-eye">
                                                                             {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                                                                         </span>
+                                                                        </FloatingLabel>
                                                                         {formik.touched.confirmPassword && formik.errors.confirmPassword && (
                                                                             <div className='fv-plugins-message-container mt-1'>
                                                                                 <div className='fv-help-block'>
@@ -509,9 +545,12 @@ const Signup = () => {
 
                                                             </Form.Group>
 
-                                                            {isOn && <div className="referral-code">
-                                                                <Form.Group className="mb-3 form_label">
-                                                                    <Form.Label>Your Referral Code</Form.Label>
+                                                            {isOn && <div className="referral-code mt-4">
+                                                                <Form.Group className="mb-3 form_label">                                                                    <FloatingLabel
+                                                                            as={Col}
+                                                                            label="Your Referral Code"
+                                                                            className="mb-3 position-relative"
+                                                                            >  
                                                                     <input
                                                                         type="text"
                                                                         name="referral_code"
@@ -527,6 +566,7 @@ const Signup = () => {
                                                                         ) : ""}
                                                                         placeholder="Enter Referral Code"
                                                                     />
+                                                                     </FloatingLabel>
                                                                     {formik.touched.referral_code && formik.errors.referral_code && (
                                                                         <div className='fv-plugins-message-container mt-1'>
                                                                             <div className='fv-help-block'>
@@ -544,19 +584,19 @@ const Signup = () => {
                                                                     about out products and special offers, please check this box"
                                                                 />
                                                             </Form.Group>
-                                                            <button variant="primary"
+                                                            <Button variant="primary"
                                                                 type="submit"
-                                                                className="signup_button ">
-                                                                Sign <b>up</b> <img src="assets/img/home/Union.png" className="vission_image" alt="alt_image" />
+                                                                className="custom-signin-btn ">
+                                                                SIGN <b>UP</b>
                                                                 {loading ? <>
                                                                     <div className="loader-overly">
                                                                         <div className="loader" >
                                                                         </div>
                                                                     </div>
                                                                 </> : <></>}
-                                                            </button>
-                                                            <p className="already_content">Already have an account?
-                                                                <NavLink to="/login">Sign In</NavLink>
+                                                            </Button>
+                                                            <p className="already_content mt-3">Already have an account?
+                                                                <NavLink to="/login" className="text-success fw-bold forgotpassword-text"> Sign In</NavLink>
                                                             </p>
                                                         </form>
                                                     </div>

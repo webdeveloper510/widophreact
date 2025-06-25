@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import Form from 'react-bootstrap/Form';
+import { Form, FloatingLabel, Col ,Button } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 
 import { toast } from "react-toastify";
@@ -11,7 +11,7 @@ import { resendOtp, resetEmail } from "../../utils/Api";
 
 import PhoneInput from "react-phone-input-2";
 import { useFormik } from "formik";
-
+import LoginImage from "../../assets/img/header/login-image.png";
 
 
 const ForgotPassword = () => {
@@ -75,16 +75,23 @@ const ForgotPassword = () => {
                     <div className="row">
                         <div className="col-lg-5">
                             <div className="sign-image-sec">
-                                <img src="assets/img/home/signup-left.webp" className="signup" alt="alt_image" />
+                                         <img src={LoginImage} alt="Login Art" className="signup" />
                             </div>
                         </div>
                         <div className="col-lg-7 d-flex align-items-center">
                             <div className="card-body forgot-pass">
-
-                                <h2 className="Sign-heading mb-5">Forgot password?</h2>
-                                <form onSubmit={formik.handleSubmit} noValidate>
+ <div className="exchange-title">
+              Forgot  <br></br>password?
+              <span className="exchange_rate">To send money securely.</span>
+            </div>
+                               
+                                <form onSubmit={formik.handleSubmit} className="exchange-form" noValidate>
                                     <Form.Group className="mb-3 form_label" controlId="formBasicEmail">
-                                        <Form.Label>Your Mobile Number<span style={{ color: 'red' }} >*</span></Form.Label>
+                                        {/* <Form.Label>Your Mobile Number<span style={{ color: 'red' }} >*</span></Form.Label> */}
+                                        <FloatingLabel
+                                                  as={Col}
+                                                  label="Your Mobile Number"
+                                                 >
                                         <PhoneInput
                                             onlyCountries={["au", "nz"]}
                                             country={"au"}
@@ -103,14 +110,16 @@ const ForgotPassword = () => {
                                             )}
 
                                         />
+                                        </FloatingLabel>
                                     </Form.Group>
-                                    <button variant="primary"
+                                    
+                                    <Button variant="primary"
                                         type="submit"
-                                        className="login_button"
+                                        className="custom-signin-btn"
                                     >
-                                        Reset <img src="assets/img/home/Union.png">
+                                        Reset
 
-                                        </img>
+                                        
                                         {loading ? <>
                                             <div className="loader-overly">
                                                 <div className="loader" >
@@ -119,9 +128,9 @@ const ForgotPassword = () => {
 
                                             </div>
                                         </> : <></>}
-                                    </button>
+                                    </Button>
                                 </form>
-                                <div className="backlogin">
+                                <div className="backlogin mt-4">
                                     Back to Login  <a href="/login">Go Back</a>
                                 </div>
                             </div>

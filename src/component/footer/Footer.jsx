@@ -7,6 +7,17 @@ import { hitNewsletter } from "../../utils/Api";
 import clsx from "clsx";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
+import footerlogo from "../../assets/img/footer/footer-logo.png";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaXTwitter,
+  FaRss,
+  FaRegEnvelope,
+  FaPhoneVolume,
+  FaWhatsapp,
+} from "react-icons/fa6";
 
 const Footer = () => {
     const [accordionOpen, setAccordionOpen] = useState(null);
@@ -290,159 +301,97 @@ const Footer = () => {
     return (
         <>
             {/* <!-- ======= Footer ======= --> */}
-            <div className="container-foter">
-                <footer id="footer">
-                    <div className="footer-top1 desktop-only">
+         
+                <footer class="footer"
+                
+                 style={{
+        backgroundColor: "#c6dc0e",
+        paddingTop: "4rem",
+        paddingBottom: "2rem",
+      }}>
 
-                        <div className="row">
+<Container>
+        <Row className="mb-4">
+          <Col md={3}>
+            <img src={footerlogo} alt="image" />
+            <p style={{ fontSize: "14px" }} className="mt-2">
+              In publishing and graphic design, Lorem Ipsum is a placeholder
+              text commonly...
+            </p>
+            <div className="d-flex gap-2 social-icons">
+              <a href="https://www.facebook.com/widophRemit">
+                <FaFacebookF />
+              </a>
+              <a href="https://x.com/WidophRemit">
+                <FaXTwitter />
+              </a>
+              <a href="https://www.instagram.com/widophremit/">
+                <FaInstagram />
+              </a>
+              <a href="https://widophremit.com/feed/">
+                <FaRss />
+              </a>
+            </div>
+          </Col>
 
-                            <div className="col-lg-3 col-md-3">
-                                <h4>Quick Links</h4>
+          <Col md={3}>
+            <h6>
+              <strong>Quick Links</strong>
+            </h6>
+            <ul className="list-unstyled">
+              <li>
+                <a href="https://widophremit.com/">Home</a>
+              </li>
+              <li>
+                <a href="https://widophremit.com/notify-me/">
+                  International Money Transfer
+                </a>
+              </li>
+              <li>
+                <a href="https://widophremit.com/blog/">Blog</a>
+              </li>
+              <li>
+                <a href="https://widophremit.com/transfer-money-online-from-australia-to-nigeria/">
+                  Transfer Money online from Australia to Nigeria
+                </a>
+              </li>
+              <li>
+                <a href="https://widophremit.com/community-responsibility/">
+                  Social Responsibility
+                </a>
+              </li>
+            </ul>
+          </Col>
 
-                                <ul>
-                                    <li><NavLink to="/login">Login</NavLink></li>
-                                    <li> <NavLink to="/sign-up">Signup</NavLink></li>
-                                    <li className="exchange-rate-link" style={{ cursor: "pointer" }} onClick={() => checkExchangeRate()}>Check Exchange Rates</li>
-                                    <li className="exchange-rate-link" style={{ cursor: "pointer" }} onClick={() => checkExchangeRate()}>Send Money Overseas</li>
-                                    <li className="exchange-rate-link" style={{ cursor: "pointer" }} onClick={() => blogRedirect()}>Blogs</li>
-                                    {/* <NavigationFooterArrayObjects  /> */}
-                                </ul>
-                            </div>
+          <Col md={3}>
+            <h6>
+              <strong>Contact</strong>
+            </h6>
+            <ul className="list-unstyled" style={{ fontSize: "14px" }}>
+              <li>
+                <FaRegEnvelope />{" "}
+                <a href="mailto:support@widophremit.com">
+                  support@widophremit.com
+                </a>
+              </li>
+              <li>
+                <FaPhoneVolume />
+                <a href="tel:02 8001 6495"> 02 8001 6495, 0480 001 611</a>
+              </li>
+              <li>
+                <FaWhatsapp /> <a href="tel:+61480001611">+61480001611</a>
+              </li>
+            </ul>
+          </Col>
 
-                            <div className="col-lg-2 col-md-2">
-                                <h4>Company</h4>
-                                <ul>
-                                    <li><NavLink to="/about-us">About Us</NavLink></li>
-                                    <li className="exchange-rate-link" style={{ cursor: "pointer" }} onClick={() => howItWorks()}>How It Works </li>
-                                    <li className="exchange-rate-link" style={{ cursor: "pointer" }} onClick={() => mobileApps()}>Mobile Apps</li>
-                                    {/* <li> <NavLink to="/news">News</NavLink></li> */}
-                                </ul>
-                            </div>
+          <Col md={3}>
+            <h6>
+              <strong>Join Our Newsletter</strong>
+            </h6>
 
-                            <div className="col-lg-2 col-md-2">
-                                <h4>Legal</h4>
-                                <ul>
-                                    <li><NavLink to="/terms-and-condition">Terms And Conditions</NavLink></li>
-                                    <li> <NavLink to="/aml-policy">AML Policy </NavLink></li>
-                                    <li> <NavLink to="/privacy-policy">Privacy Policy</NavLink></li>
-                                    <li> <NavLink to="/anti-bribery-and-corruption-policy">Anti-Bribery and Corruption Policy</NavLink></li>
-                                    <li> <NavLink to="/gifts-entertainment-and-hospitality-policy">GEH Policy</NavLink></li>
-                                    <li> <NavLink to="/dispute-management-policy">Dispute Management Policy</NavLink></li>
-                                    <li> <NavLink to="/whistle-blowing-policy">WhistleBlowing Policy</NavLink></li>
-                                </ul>
-
-                            </div>
-
-                            <div className="col-lg-5 col-md-5">
-
-                                <h4>Join our newsletter</h4>
-
-                                <div className="newsletterform">
-                                    <div className="form-ffoter">
-                                        <form onSubmit={formik.handleSubmit} className="news-ll">
-                                            <div className="input-news">
-                                                <input
-                                                    type="text"
-                                                    {...formik.getFieldProps('email')}
-                                                    className={clsx(
-                                                        'form-control',
-                                                        { 'is-invalid': formik.touched.email && formik.errors.email },
-                                                        {
-                                                            'is-valid': formik.touched.email && !formik.errors.email,
-                                                        }
-                                                    )}
-                                                    placeholder="Email address"
-                                                />
-                                            </div>
-                                            <div className="button-new">
-                                                <div className="btn-con "><button type="submit">Subscribe</button></div>
-                                            </div>
-                                            <div className="error_subr">
-                                                {
-                                                    formik.errors.email && (
-                                                        <p>{formik.errors.email}</p>
-                                                    )
-                                                }
-                                                {
-                                                    message && (
-                                                        <p>{message}</p>
-                                                    )
-                                                }
-                                            </div>
-                                        </form>
-                                    </div>
-                                    {/* <p className="content-news">In publishing and graphic design, Lorem ipsum is a placeholder text commonly.</p> */}
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div className=" footer-top1  mobile-footer">
-
-                        <div className="footer-info1 footer-last-logo mobile--logo">
-                            <div className="icon-ffoter">
-                                <img src="assets/img/home/footer-logo.webp" className="logo-foo" alt="logo" />
-
-
-                            </div>
-                        </div>
-                        <div onClick={() => toggleAccordion(0)}>
-                            <h4>Quick Links  {accordionOpen === 0 ? <img src="assets/img/home/up.png" alt="logo" /> : <img src="assets/img/home/down.png" alt="logo" />} </h4>
-                        </div>
-                        {accordionOpen === 0 && (
-                            <ul>
-                                <li><NavLink to="/login">Login</NavLink></li>
-                                <li> <NavLink to="/sign-up">Signup</NavLink></li>
-                                <li className="exchange-rate-link" style={{ cursor: "pointer" }} onClick={() => checkExchangeRate()}>Check Exchange Rates</li>
-                                <li className="exchange-rate-link" style={{ cursor: "pointer" }} onClick={() => checkExchangeRate()}>Send Money Overseas</li>
-                                {/* <NavigationFooterArrayObjects  /> */}
-                            </ul>
-                        )}
-
-                        <div onClick={() => toggleAccordion(1)}>
-                            <h4>Company {accordionOpen === 1 ? <img src="assets/img/home/up.png" alt="logo" /> : <img src="assets/img/home/down.png" alt="logo" />}</h4>
-                        </div>
-                        {accordionOpen === 1 && (
-                            <ul>
-                                <li><NavLink to="/about-us">About Us</NavLink></li>
-                                <li className="exchange-rate-link" style={{ cursor: "pointer" }} onClick={() => howItWorks()}>How It Works</li>
-                                <li className="exchange-rate-link" style={{ cursor: "pointer" }} onClick={() => mobileApps()}>Mobile Apps</li>
-                                {/* <li> <NavLink to="/news">News</NavLink></li> */}
-                            </ul>
-                        )}
-
-
-
-
-
-
-
-                        <div onClick={() => toggleAccordion(2)}>
-                            <h4>Legal {accordionOpen === 2 ? <img src="assets/img/home/up.png" /> : <img src="assets/img/home/down.png" alt="logo" />}</h4>
-                        </div>
-                        {accordionOpen === 2 && (
-                            <ul>
-                                <li><NavLink to="/terms-and-condition">Terms And Conditions</NavLink></li>
-                                <li> <NavLink to="/aml-policy">AML Policy </NavLink></li>
-                                <li> <NavLink to="/privacy-policy">Privacy Policy</NavLink></li>
-                                <li> <NavLink to="/anti-bribery-and-corruption-policy">Anti-Bribery and Corruption Policy</NavLink></li>
-                                <li> <NavLink to="/gifts-entertainment-and-hospitality-policy">GEH Policy</NavLink></li>
-                                <li> <NavLink to="/dispute-management-policy">Dispute Management Policy</NavLink></li>
-                                <li> <NavLink to="/whistle-blowing-policy">WhistleBlowing Policy</NavLink></li>
-                            </ul>
-                        )}
-
-
-                        <div onClick={() => toggleAccordion(3)}>
-                            <h4>Join our newsletter {accordionOpen === 2 ? <img src="assets/img/home/up.png" alt="logo" /> : <img src="assets/img/home/down.png" alt="logo" />}</h4>
-                        </div>
-                        {accordionOpen === 3 && (
-                            <div className="newsletterform">
-                                <div className="form-ffoter">
-                                    <form onSubmit={formik.handleSubmit}>
-                                        <div className="input-news">
+             <form onSubmit={formik.handleSubmit} className="mb-2">
+                <div className="d-flex">
+                                        <div className="input-news me-2">
                                             <input
                                                 type="text"
                                                 {...formik.getFieldProps('email')}
@@ -456,10 +405,10 @@ const Footer = () => {
                                                 placeholder="Email address"
                                             />
                                         </div>
-                                        <div className="button-new">
-                                            <div className="btn-con "><button type="submit">Subscribe</button></div>
+                                        
+                                            <button type="submit">Subscribe</button>
                                         </div>
-                                        <div >
+                                        <div>
                                             {
                                                 formik.errors.email && (
                                                     <p>{formik.errors.email}</p>
@@ -472,122 +421,192 @@ const Footer = () => {
                                             }
                                         </div>
                                     </form>
+            <div style={{ fontSize: "14px" }}>
+              <h6 className="mt-4">
+                <strong>Address</strong>
+              </h6>
+              <p>
+                Level 14, 275 Alfred Street North
+                <br />
+                Sydney, NEW SOUTH WALES, 2060
+                <br />
+                Australia
+              </p>
+            </div>
+          </Col>
+        </Row>
+
+        <hr />
+
+        <Row
+          className="justify-content-between align-items-center sitelinks"
+          style={{ fontSize: "14px" }}
+        >
+          <Col md="auto">
+            © Copyright Widoph Remit 2024. All Rights Reserved
+          </Col>
+          <Col md="auto">
+            <a href="https://widophremit.com/widophremit-terms-and-conditions/">
+              Terms
+            </a>
+            &nbsp; | &nbsp;
+            <a href="https://widophremit.com/widoph-remit-privacy-policy/">
+              Privacy
+            </a>
+            &nbsp; | &nbsp;
+            <a href="https://widophremit.com/contact-us/">Contact</a>
+          </Col>
+        </Row>
+      </Container>
+
+        {/* <Container className="mobile-footer">
+        <Row className="mb-4">
+                  
+                    <div className=" footer-top1  ">
+
+                         <img src={footerlogo} alt="image" />
+            <p style={{ fontSize: "14px" }} className="mt-2">
+              In publishing and graphic design, Lorem Ipsum is a placeholder
+              text commonly...
+            </p>
+            <div className="d-flex gap-2 social-icons">
+              <a href="https://www.facebook.com/widophRemit">
+                <FaFacebookF />
+              </a>
+              <a href="https://x.com/WidophRemit">
+                <FaXTwitter />
+              </a>
+              <a href="https://www.instagram.com/widophremit/">
+                <FaInstagram />
+              </a>
+              <a href="https://widophremit.com/feed/">
+                <FaRss />
+              </a>
+            </div>
+                        <div onClick={() => toggleAccordion(0)}>
+                            <h4>Quick Links  {accordionOpen === 0 ? <img src="assets/img/home/up.png" alt="logo" /> : <img src="assets/img/home/down.png" alt="logo" />} </h4>
+                        </div>
+                        {accordionOpen === 0 && (
+                            <ul className="list-unstyled">
+              <li>
+                <a href="https://widophremit.com/">Home</a>
+              </li>
+              <li>
+                <a href="https://widophremit.com/notify-me/">
+                  International Money Transfer
+                </a>
+              </li>
+              <li>
+                <a href="https://widophremit.com/blog/">Blog</a>
+              </li>
+              <li>
+                <a href="https://widophremit.com/transfer-money-online-from-australia-to-nigeria/">
+                  Transfer Money online from Australia to Nigeria
+                </a>
+              </li>
+              <li>
+                <a href="https://widophremit.com/community-responsibility/">
+                  Social Responsibility
+                </a>
+              </li>
+            </ul>
+                        )}
+
+                        <div onClick={() => toggleAccordion(1)}>
+                            <h4>Contact {accordionOpen === 1 ? <img src="assets/img/home/up.png" alt="logo" /> : <img src="assets/img/home/down.png" alt="logo" />}</h4>
+                        </div>
+                        {accordionOpen === 1 && (
+                             <ul className="list-unstyled" style={{ fontSize: "14px" }}>
+              <li>
+                <FaRegEnvelope />{" "}
+                <a href="mailto:support@widophremit.com">
+                  support@widophremit.com
+                </a>
+              </li>
+              <li>
+                <FaPhoneVolume />
+                <a href="tel:02 8001 6495"> 02 8001 6495, 0480 001 611</a>
+              </li>
+              <li>
+                <FaWhatsapp /> <a href="tel:+61480001611">+61480001611</a>
+              </li>
+            </ul>
+                        )}
+
+                        <div onClick={() => toggleAccordion(2)}>
+                            <h4>Legal {accordionOpen === 2 ? <img src="assets/img/home/up.png" /> : <img src="assets/img/home/down.png" alt="logo" />}</h4>
+                        </div>
+                        {accordionOpen === 2 && (
+
+                            <ul>
+                                <li><NavLink to="https://widophremit.com/widophremit-terms-and-conditions">Terms And Conditions</NavLink></li>
+                                <li> <NavLink to="https://widophremit.com/widoph-remit-privacy-policy/">Privacy Policy</NavLink></li>
+                                <li> <NavLink to="https://widophremit.com/contact-us/">Contact Us</NavLink></li>
+                            </ul>
+                        )}
+
+
+                        <div onClick={() => toggleAccordion(3)}>
+                            <h4>Join our newsletter {accordionOpen === 2 ? <img src="assets/img/home/up.png" alt="logo" /> : <img src="assets/img/home/down.png" alt="logo" />}</h4>
+                        </div>
+                        {accordionOpen === 3 && (
+                            <div className="newsletterform">
+                                <div className="form-ffoter">
+                                      <form onSubmit={formik.handleSubmit} className="mb-2">
+                <div className="d-flex">
+                                        <div className="input-news me-2">
+                                            <input
+                                                type="text"
+                                                {...formik.getFieldProps('email')}
+                                                className={clsx(
+                                                    'form-control',
+                                                    { 'is-invalid': formik.touched.email && formik.errors.email },
+                                                    {
+                                                        'is-valid': formik.touched.email && !formik.errors.email,
+                                                    }
+                                                )}
+                                                placeholder="Email address"
+                                            />
+                                        </div>
+                                        
+                                            <button type="submit">Subscribe</button>
+                                        </div>
+                                        <div>
+                                            {
+                                                formik.errors.email && (
+                                                    <p>{formik.errors.email}</p>
+                                                )
+                                            }
+                                            {
+                                                message && (
+                                                    <p>{message}</p>
+                                                )
+                                            }
+                                        </div>
+                                    </form>
+                                    <div style={{ fontSize: "14px" }}>
+              <h6 className="mt-4">
+                <strong>Address</strong>
+              </h6>
+              <p>
+                Level 14, 275 Alfred Street North
+                <br />
+                Sydney, NEW SOUTH WALES, 2060
+                <br />
+                Australia
+              </p>
+            </div>
                                 </div>
-                                {/* <p className="content-news">In publishing and graphic design, Lorem ipsum is a placeholder text commonly.</p> */}
                             </div>
                         )}
                     </div>
-
-                    <div className="bottom-footer">
-                        <div className="row">
-                            <div className="col-md-4">
-                                <div className="footer-info1 footer-logo">
-                                    <div className="icon-ffoter ">
-                                        <img src="assets/img/home/mail.png" alt="qqt" />
-
-                                    </div>
-                                    <div className="infor-content">
-                                        <a href="mailto:crm@remitassure.com">crm@remitassure.com</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-4">
-
-                                <div className="footer-info1 center-content">
-                                    <div className="icon-ffoter">
-                                        <img src="assets/img/home/footer2.png" alt="logo" />
-
-
-                                    </div>
-                                    <div className="infor-content">
-                                        <a href="https://api.whatsapp.com/send/?phone=61421192684&text&type=phone_number&app_absent=0" target="_blank">+61421192684</a>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <div className="col-md-4">
-                                <div className="footer-info1 right-content">
-                                    <div className="icon-ffoter">
-                                        <img src="assets/img/home/footer3.png" alt="logo" />
-
-
-                                    </div>
-                                    <div className="infor-content">
-                                        <a href="tel:1300284228" target="_blank">1300 284 228 (toll free)</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="footer-divder">
-                        <div className="borderdevider"></div>
-                    </div>
-
-
-                    <div className="bottom-footer bottom-none">
-                        <div className="row">
-                            <div className="col-md-3">
-                                <div className="footer-info1 footer-last-logo desktop-onlyy">
-                                    <div className="icon-ffoter">
-                                        <img src="assets/img/home/footer-logo.webp" className="logo-foo" alt="logo" />
-
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div className="col-md-6 footer-linksss">
-
-                                <div className="footer-info1 center-content">
-                                    <div className="icon-ffoter">
-
-                                        <ul className="footer-bottom-links">
-                                            <li><NavLink to="/terms-and-condition">Terms And Conditions</NavLink></li>
-
-                                            <li> <NavLink to="/privacy-policy">Privacy Policy</NavLink></li>
-                                            <li> <NavLink to="/aml-policy"> AML Policy  </NavLink></li>
-                                        </ul>
-
-
-
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                <div className="footer-info1 right-content">
-                                    <div className="icon-ffoter">
-                                        <div className="social-links ">
-                                            <a className="twitter" target="_blank" href="https://twitter.com/remitassure" aria-label="twitter">  <img src="assets/img/home/twiter.svg" alt="logo" /></a>
-                                            <a className="facebook" target="_blank" href="https://www.facebook.com/remitassure" aria-label="facebook"><img src="assets/img/home/facebook.svg" alt="logo" /></a>
-                                            <a className="instagram" target="_blank" href="https://www.instagram.com/media.remitassure/" aria-label="instagram"><img src="assets/img/home/ig.svg" alt="logo" /></a>
-                                            <a className="instagram" target="_blank" href="https://www.linkedin.com/company/remitassure/" aria-label="link Us"><img src="assets/img/home/Linkedin Logo.svg" alt="logo" /></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="container pt-4">
-                                <div className="row reserved_content">
-                                    <div className="copyright">&copy; Copyright &nbsp;
-                                        <strong>
-                                            <span>RemitAssure</span>
-                                        </strong>. All Rights Reserved
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
+ </Row>
+      </Container> */}
 
 
 
                 </footer>
-            </div>
+            
             {/* <!-- ======= End-footer ======= --> */}
         </>
     )
